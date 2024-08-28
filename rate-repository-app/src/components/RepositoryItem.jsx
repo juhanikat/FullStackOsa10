@@ -1,18 +1,16 @@
-import { View, Text } from "react-native-web";
-
+import { View, Text } from "react-native";
+// DO NOT IMPORT FROM react-native-web !!
 const RepositoryItem = ({ data }) => {
   return (
     <View>
-      <Text>
-        <p>{data.fullName}</p>
-        <p>{data.description}</p>
-        <p>{data.language}</p>
-        <p>{data.forksCount}</p>
-        <p>{data.stargazersCount}</p>
-        <p>{data.ratingAverage}</p>
-        <p>{data.reviewCount}</p>
-        <p>{data.ownerAvatarUrl}</p>
-      </Text>
+      <Text>${data.fullName}</Text>
+      <Text>{data.description}</Text>
+      <Text>{data.language}</Text>
+      <Text>{data.forksCount}</Text>
+      <Text>{data.stargazersCount}</Text>
+      <Text>{data.ratingAverage}</Text>
+      <Text>{data.reviewCount}</Text>
+      <Text>{data.ownerAvatarUrl}</Text>
     </View>
   );
 };

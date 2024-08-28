@@ -62,7 +62,6 @@ const RepositoryList = () => {
       data={repositories}
       renderItem={(item) => <RepositoryItem data={item.item}></RepositoryItem>}
       ItemSeparatorComponent={ItemSeparator}
-      // other props
     />
   );
 };
