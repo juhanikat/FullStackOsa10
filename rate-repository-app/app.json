@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rate-repository-app2",
-    "slug": "rate-repository-app2",
+    "name": "rate-repository-app",
+    "slug": "rate-repository-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
