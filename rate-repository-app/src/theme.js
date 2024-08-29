@@ -7,7 +7,8 @@ const theme = {
         primary: '#0366d6',
         appBarBackground: '#24292e',
         mainBackground: '#e1e4e8',
-        repositoryBackground: '#FFFFFF'
+        repositoryBackground: '#FFFFFF',
+        error: '#d73a4a'
     },
     fontSizes: {
         body: 14,
