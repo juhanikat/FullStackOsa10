@@ -7,17 +7,23 @@ import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "column",
     backgroundColor: theme.colors.repositoryBackground,
     padding: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    borderRadius: 5,
   },
   image: {
     width: 50,
     height: 50,
   },
   languageContainer: {
-    width: 100,
+    alignSelf: "flex-start",
     backgroundColor: theme.colors.primary,
     borderRadius: 3,
+    paddingVertical: 2,
+    paddingHorizontal: 10,
   },
 });
 
