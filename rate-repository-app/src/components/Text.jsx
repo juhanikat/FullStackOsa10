@@ -1,12 +1,23 @@
 import { Text as NativeText, StyleSheet } from "react-native";
+import { Platform } from "react-native";
 
 import theme from "../theme";
+
+let fontFamily = theme.fonts.main;
+switch (Platform.OS) {
+  case "android":
+    fontFamily = theme.fonts.android;
+    break;
+  case "ios":
+    fontFamily = theme.fonts.ios;
+    break;
+}
 
 const styles = StyleSheet.create({
   text: {
     color: theme.colors.textPrimary,
     fontSize: theme.fontSizes.body,
-    fontFamily: theme.fonts.main,
+    fontFamily: fontFamily,
     fontWeight: theme.fontWeights.normal,
   },
   colorTextSecondary: {
