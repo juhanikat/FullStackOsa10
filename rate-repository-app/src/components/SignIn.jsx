@@ -57,7 +57,9 @@ const LogInForm = ({ onSubmit }) => {
     <View style={styles.container}>
       <TextInput
         style={
-          formik.errors.username ? styles.errorTextInput : styles.textInput
+          formik.touched.username && formik.errors.username
+            ? styles.errorTextInput
+            : styles.textInput
         }
         placeholder="username"
         value={formik.values.username}
@@ -69,7 +71,9 @@ const LogInForm = ({ onSubmit }) => {
       <TextInput
         secureTextEntry
         style={
-          formik.errors.password ? styles.errorTextInput : styles.textInput
+          formik.touched.password && formik.errors.password
+            ? styles.errorTextInput
+            : styles.textInput
         }
         placeholder="password"
         value={formik.values.password}
@@ -88,13 +92,13 @@ const LogInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-  const [signIn, result] = useSignIn();
+  const [signIn] = useSignIn();
 
   const onSubmit = async (values) => {
     const { username, password } = values;
     try {
-      await signIn({ username, password });
-      console.log(result);
+      const { data } = await signIn({ username, password });
+      console.log(data.authenticate);
     } catch (e) {
       console.log(e);
     }
