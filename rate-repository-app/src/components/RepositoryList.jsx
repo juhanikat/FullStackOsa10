@@ -17,7 +17,7 @@ const RepositoryList = () => {
     return <Text>Loading</Text>;
   } else if (error) {
     console.log(error);
-    return <Text>{error}</Text>;
+    return <Text>{error.message}</Text>;
   }
   const repositories = data.repositories;
   const repositoryNodes = repositories
