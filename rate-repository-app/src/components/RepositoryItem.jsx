@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
 const RepositoryItem = ({ data }) => {
   return (
-    <View style={styles.container}>
+    <View testID="repositoryItem" style={styles.container}>
       <Image style={styles.image} source={{ uri: data.ownerAvatarUrl }}></Image>
       <Text fontWeight={"bold"}>{data.fullName}</Text>
       <Text>{data.description}</Text>

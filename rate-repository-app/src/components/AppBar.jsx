@@ -16,13 +16,16 @@ const styles = StyleSheet.create({
   text: {
     color: theme.colors.textAppBar,
   },
+  link: {
+    marginHorizontal: 10,
+  },
 });
 
 const AppBar = () => {
   const navigate = useNavigate();
   const apolloClient = useApolloClient();
   const authStorage = useAuthStorage();
-  const { data, error, loading } = useQuery(CURRENTLY_SIGNED_IN);
+  const { data, loading } = useQuery(CURRENTLY_SIGNED_IN);
 
   const signOut = async () => {
     await authStorage.removeAccessToken();
@@ -30,20 +33,20 @@ const AppBar = () => {
     console.log("Signed out, removed token");
   };
   if (loading) {
-    return <Text>Loading...</Text>;
+    return <Text>Loading appbar...</Text>;
   }
   return (
     <View style={styles.container}>
-      <ScrollView horizontal>
+      <ScrollView horizontal style={styles.scrollview}>
         <Pressable onPressOut={() => navigate("/")}>
           <Text style={styles.text}>Repositories</Text>
         </Pressable>
         {data.me === null ? (
-          <Pressable onPressOut={() => navigate("/signin")}>
+          <Pressable style={styles.link} onPressOut={() => navigate("/signin")}>
             <Text style={styles.text}>Sign In</Text>
           </Pressable>
         ) : (
-          <Pressable onPressOut={() => signOut()}>
+          <Pressable style={styles.link} onPressOut={() => signOut()}>
             <Text style={styles.text}>Sign Out</Text>
           </Pressable>
         )}
