@@ -4,7 +4,6 @@ import RepositoryStats from "./RepositoryStats";
 import { Linking } from "react-native";
 
 import theme from "../theme";
-// DO NOT IMPORT FROM react-native-web !!
 
 const styles = StyleSheet.create({
   container: {
