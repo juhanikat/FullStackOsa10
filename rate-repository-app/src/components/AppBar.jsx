@@ -12,9 +12,12 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.colors.appBarBackground,
+    margin: 5,
+    padding: 10
   },
   text: {
     color: theme.colors.textAppBar,
+    fontSize: theme.fontSizes.appBarLinks
   },
   link: {
     marginHorizontal: 10,
