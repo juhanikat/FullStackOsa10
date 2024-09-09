@@ -46,4 +46,25 @@ export const CURRENTLY_SIGNED_IN = gql`
   }
 `;
 
+export const GET_REVIEW = gql` 
+query($id: ID!) {
+  repository(id: $id) {
+    reviews {
+      edges {
+        node {
+          id
+          text
+          rating
+          createdAt
+          user {
+            id
+            username
+          }
+        }
+      }
+    }
+  }
+}
+`
+
 

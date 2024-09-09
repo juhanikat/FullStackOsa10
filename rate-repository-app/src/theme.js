@@ -8,7 +8,9 @@ const theme = {
         appBarBackground: '#24292e',
         mainBackground: '#e1e4e8',
         repositoryBackground: '#FFFFFF',
-        error: '#d73a4a'
+        reviewBackGround: '#FFFFFF',
+        error: '#d73a4a',
+        ratingCircle: "#03c2fc"
     },
     fontSizes: {
         body: 14,

@@ -18,12 +18,12 @@ const displayedStat = (stat) => {
   return stat;
 };
 
-const RepositoryStats = ({ data }) => {
+const RepositoryStats = ({ repository }) => {
   const stats = {
-    forksCount: displayedStat(data.forksCount),
-    stargazersCount: displayedStat(data.stargazersCount),
-    ratingAverage: displayedStat(data.ratingAverage),
-    reviewCount: displayedStat(data.reviewCount),
+    forksCount: displayedStat(repository.forksCount),
+    stargazersCount: displayedStat(repository.stargazersCount),
+    ratingAverage: displayedStat(repository.ratingAverage),
+    reviewCount: displayedStat(repository.reviewCount),
   };
 
   return (

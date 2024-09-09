@@ -18,18 +18,19 @@ const RepositoryListContainer = ({ repositories }) => {
   return (
     <FlatList
       data={repositoryNodes}
-      renderItem={(item) => (
+      renderItem={({ item }) => (
         <Pressable
           onPress={() => {
-            navigate(`/repository/${item.item.id}`);
+            navigate(`/repository/${item.id}`);
           }}
         >
           <RepositoryItem
-            data={item.item}
+            repository={item}
             showGithubBtn={false}
           ></RepositoryItem>
         </Pressable>
       )}
+      keyExtractor={(item) => item.id}
       ItemSeparatorComponent={ItemSeparator}
     />
   );

@@ -38,24 +38,27 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryItem = ({ data, showGithubBtn }) => {
+const RepositoryItem = ({ repository, showGithubBtn }) => {
   return (
-    <View testID="repositoryItem" style={styles.container}>
-      <Image style={styles.image} source={{ uri: data.ownerAvatarUrl }}></Image>
+    <View key={repository.id} testID="repositoryItem" style={styles.container}>
+      <Image
+        style={styles.image}
+        source={{ uri: repository.ownerAvatarUrl }}
+      ></Image>
       <Text style={styles.text} fontWeight={"bold"} fontSize={"subheading"}>
-        {data.fullName}
+        {repository.fullName}
       </Text>
-      <Text style={styles.text}>{data.description}</Text>
+      <Text style={styles.text}>{repository.description}</Text>
       <View style={styles.languageContainer}>
         <Text color={"white"} textAlign={"center"}>
-          {data.language}
+          {repository.language}
         </Text>
       </View>
-      <RepositoryStats data={data}></RepositoryStats>
+      <RepositoryStats repository={repository}></RepositoryStats>
       {showGithubBtn && (
         <Pressable
           style={styles.githubBtn}
-          onPress={() => Linking.openURL(data.url)}
+          onPress={() => Linking.openURL(repository.url)}
         >
           <Text color={"white"}>Open in Github</Text>
         </Pressable>
