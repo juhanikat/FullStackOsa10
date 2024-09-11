@@ -13,13 +13,15 @@ const CreateReview = () => {
       const { repoOwnerName, repoName, rating, review } = values;
       console.log(rating);
       const ratingAsNumber = Number(rating);
-      await createReview({
+      const { data } = await createReview({
         repoOwnerName,
         repoName,
         rating: ratingAsNumber,
         review,
       });
-      navigate("/");
+      console.log(data);
+      console.log(`/repository/${data.createReview.repositoryId}`);
+      navigate(`/repository/${data.createReview.repositoryId}`);
     } catch (e) {
       setErrorMsg(e.message);
       setTimeout(() => {

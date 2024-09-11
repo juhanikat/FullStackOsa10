@@ -6,7 +6,7 @@ const useCreateReview = () => {
 
     const createReview = async ({ repoOwnerName, repoName, rating, review }) => {
         try {
-            await mutate({ variables: { review: { ownerName: repoOwnerName, repositoryName: repoName, rating: rating, text: review } } })
+            return await mutate({ variables: { review: { ownerName: repoOwnerName, repositoryName: repoName, rating: rating, text: review } } })
         } catch (e) {
             throw new Error(e.message)
         }

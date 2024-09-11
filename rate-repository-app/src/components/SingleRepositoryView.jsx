@@ -60,6 +60,7 @@ const ItemSeparator = () => {
 const SingleRepositoryView = () => {
   const id = useParams().id;
   const repositoryResult = useQuery(GET_SINGLE_REPOSITORY, {
+    fetchPolicy: "cache-and-network",
     variables: { id: id },
   });
   const reviewResult = useQuery(GET_REVIEW, {
