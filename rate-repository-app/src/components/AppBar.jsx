@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.colors.appBarBackground,
     margin: 5,
-    padding: 10
+    padding: 10,
   },
   text: {
     color: theme.colors.textAppBar,
-    fontSize: theme.fontSizes.appBarLinks
+    fontSize: theme.fontSizes.appBarLinks,
   },
   link: {
     marginHorizontal: 10,
@@ -51,6 +51,14 @@ const AppBar = () => {
         ) : (
           <Pressable style={styles.link} onPressOut={() => signOut()}>
             <Text style={styles.text}>Sign Out</Text>
+          </Pressable>
+        )}
+        {data.me !== null && (
+          <Pressable
+            style={styles.link}
+            onPressOut={() => navigate("/createreview")}
+          >
+            <Text style={styles.text}>Create a Review</Text>
           </Pressable>
         )}
       </ScrollView>
