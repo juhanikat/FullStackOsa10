@@ -11,7 +11,6 @@ const CreateReview = () => {
   const onSubmit = async (values) => {
     try {
       const { repoOwnerName, repoName, rating, review } = values;
-      console.log(rating);
       const ratingAsNumber = Number(rating);
       const { data } = await createReview({
         repoOwnerName,
@@ -19,8 +18,6 @@ const CreateReview = () => {
         rating: ratingAsNumber,
         review,
       });
-      console.log(data);
-      console.log(`/repository/${data.createReview.repositoryId}`);
       navigate(`/repository/${data.createReview.repositoryId}`);
     } catch (e) {
       setErrorMsg(e.message);

@@ -59,6 +59,10 @@ const ItemSeparator = () => {
 
 const SingleRepositoryView = () => {
   const id = useParams().id;
+  console.log(useParams());
+  if (id === undefined) {
+    return <Text>No id found in url</Text>;
+  }
   const repositoryResult = useQuery(GET_SINGLE_REPOSITORY, {
     fetchPolicy: "cache-and-network",
     variables: { id: id },
