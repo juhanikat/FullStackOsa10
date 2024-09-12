@@ -53,6 +53,11 @@ const AppBar = () => {
             <Text style={styles.text}>Sign Out</Text>
           </Pressable>
         )}
+        {data.me === null && (
+          <Pressable style={styles.link} onPressOut={() => navigate("/signup")}>
+            <Text style={styles.text}>Sign Up</Text>
+          </Pressable>
+        )}
         {data.me !== null && (
           <Pressable
             style={styles.link}

@@ -59,7 +59,6 @@ const ItemSeparator = () => {
 
 const SingleRepositoryView = () => {
   const id = useParams().id;
-  console.log(useParams());
   if (id === undefined) {
     return <Text>No id found in url</Text>;
   }
