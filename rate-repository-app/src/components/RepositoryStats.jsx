@@ -2,11 +2,11 @@ import Text from "./Text";
 import { StyleSheet, View } from "react-native";
 
 const styles = StyleSheet.create({
-  flexContainer: {
+  container: {
     flexDirection: "row",
     justifyContent: "space-evenly",
+    marginVertical: 10,
   },
-  statContainer: {},
 });
 
 const displayedStat = (stat) => {
@@ -27,7 +27,7 @@ const RepositoryStats = ({ repository }) => {
   };
 
   return (
-    <View style={styles.flexContainer}>
+    <View style={styles.container}>
       <View>
         <Text fontWeight={"bold"}>Stars</Text>
         <Text>{stats.stargazersCount}</Text>

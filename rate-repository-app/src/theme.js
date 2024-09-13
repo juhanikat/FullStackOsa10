@@ -13,7 +13,7 @@ const theme = {
         ratingCircle: "#03c2fc"
     },
     fontSizes: {
-        body: 14,
+        body: 16,
         subheading: 16,
         appBarLinks: 25
     },

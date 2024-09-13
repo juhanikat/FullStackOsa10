@@ -12,6 +12,7 @@ import { format } from "date-fns";
 const styles = StyleSheet.create({
   reviewContainer: {
     flexDirection: "row",
+    flex: 1,
     borderRadius: 5,
     backgroundColor: theme.colors.repositoryBackground,
     padding: 10,
@@ -27,7 +28,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 50,
     height: 50,
-    marginHorizontal: 50,
+    marginHorizontal: 20,
+  },
+  reviewTextContainer: {
+    flexDirection: "column",
+    flex: 1,
   },
   separator: {
     height: 10,
@@ -42,12 +47,12 @@ const ReviewItem = ({ review }) => {
   return (
     <View style={styles.reviewContainer}>
       <View style={styles.ratingCircle}>
-        <Text color={"blue"}>{review.node.rating}</Text>
+        <Text color={"blue"}>{review.rating}</Text>
       </View>
-      <View>
-        <Text>{review.node.user.username}</Text>
-        <Text>{format(review.node.createdAt, "PPPPpppp")}</Text>
-        <Text style={{ flexWrap: "wrap" }}>{review.node.text}</Text>
+      <View style={styles.reviewTextContainer}>
+        <Text>{review.user.username}</Text>
+        <Text>{format(review.createdAt, "PPPPpppp")}</Text>
+        <Text>{review.text}</Text>
       </View>
     </View>
   );
@@ -77,12 +82,13 @@ const SingleRepositoryView = () => {
     return <Text>Loading reviews...</Text>;
   }
   const repository = repositoryResult.data.repository;
-  const reviews = reviewResult.data.repository.reviews.edges;
-
+  const reviews = reviewResult
+    ? reviewResult.data.repository.reviews.edges.map((edge) => edge.node)
+    : [];
   return (
     <FlatList
       data={reviews}
-      renderItem={({ item }) => <ReviewItem key={item.node.id} review={item} />}
+      renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={(item) => item.id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
       ItemSeparatorComponent={ItemSeparator}

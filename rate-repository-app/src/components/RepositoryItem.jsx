@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
+    marginVertical: 10
   },
   text: {
     padding: 5,
@@ -27,13 +28,15 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     paddingVertical: 5,
     paddingHorizontal: 10,
+    marginVertical: 5,
     margin: 5,
   },
   githubBtn: {
     backgroundColor: theme.colors.primary,
     borderRadius: 5,
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 7,
+    marginVertical: 10,
     alignSelf: "center",
   },
 });
