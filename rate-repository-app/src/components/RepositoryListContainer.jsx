@@ -1,8 +1,11 @@
 import { FlatList, View, StyleSheet, Pressable } from "react-native";
 import RepositoryItem from "./RepositoryItem";
-import { useNavigate } from "react-router-native";
+import { Searchbar } from "react-native-paper";
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 0,
+  },
   separator: {
     height: 10,
   },
@@ -10,14 +13,18 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories }) => {
-  const navigate = useNavigate();
-
+const RepositoryListContainer = ({
+  repositories,
+  navigate,
+  searchQuery,
+  setSearchQuery,
+}) => {
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];
   return (
     <FlatList
+      style={styles.container}
       data={repositoryNodes}
       renderItem={({ item }) => (
         <Pressable
@@ -33,6 +40,14 @@ const RepositoryListContainer = ({ repositories }) => {
       )}
       keyExtractor={(item) => item.id}
       ItemSeparatorComponent={ItemSeparator}
+      ListHeaderComponent={
+        <Searchbar
+          placeholder="Search repositories"
+          onChangeText={setSearchQuery}
+          value={searchQuery}
+        />
+      }
+      ListFooterComponent={<View style={{height: 200}}/>}
     />
   );
 };

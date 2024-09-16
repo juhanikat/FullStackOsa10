@@ -51,7 +51,7 @@ const ReviewItem = ({ review }) => {
       </View>
       <View style={styles.reviewTextContainer}>
         <Text>{review.user.username}</Text>
-        <Text>{format(review.createdAt, "PPPPpppp")}</Text>
+        <Text>{format(review.createdAt, "GGGG-d-M-yyyy")}</Text>
         <Text>{review.text}</Text>
       </View>
     </View>
@@ -91,6 +91,7 @@ const SingleRepositoryView = () => {
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={(item) => item.id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
+      ListFooterComponent={<View style={{height: 200}}/>}
       ItemSeparatorComponent={ItemSeparator}
     />
   );
