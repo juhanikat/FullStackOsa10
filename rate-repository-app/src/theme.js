@@ -2,20 +2,21 @@ const theme = {
     colors: {
         textPrimary: '#24292e',
         textSecondary: '#586069',
+        textWhite: '#FFFFFF',
+        textError: '#d73a4a',
+        blue: '#0366d6',
+        red: '#bf1526',
         white: '#FFFFFF',
-        textAppBar: '#FFFFFF',
-        primary: '#0366d6',
         appBarBackground: '#24292e',
         mainBackground: '#e1e4e8',
         repositoryBackground: '#FFFFFF',
         reviewBackGround: '#FFFFFF',
-        error: '#d73a4a',
         ratingCircle: "#03c2fc"
     },
     fontSizes: {
         body: 16,
         subheading: 16,
-        appBarLinks: 25
+        appBarLinks: 20
     },
     fonts: {
         main: 'System',

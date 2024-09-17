@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   languageContainer: {
     alignSelf: "flex-start",
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.blue,
     borderRadius: 3,
     paddingVertical: 5,
     paddingHorizontal: 10,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   githubBtn: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.blue,
     borderRadius: 5,
     paddingHorizontal: 20,
     paddingVertical: 7,
@@ -61,7 +61,7 @@ const RepositoryItem = ({ repository, showGithubBtn }) => {
       {showGithubBtn && (
         <Pressable
           style={styles.githubBtn}
-          onPress={() => Linking.openURL(repository.url)}
+          onPressOut={() => Linking.openURL(repository.url)}
         >
           <Text color={"white"}>Open in Github</Text>
         </Pressable>

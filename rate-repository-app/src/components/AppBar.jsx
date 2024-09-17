@@ -1,34 +1,32 @@
 import { View, StyleSheet, Pressable, ScrollView } from "react-native";
 import Text from "./Text";
-import Constants from "expo-constants";
 import theme from "../theme";
 import { useNavigate } from "react-router-native";
 import { useQuery } from "@apollo/client";
-import { CURRENTLY_SIGNED_IN } from "../graphql/queries";
+import { GET_CURRENT_USER } from "../graphql/queries";
 import useAuthStorage from "../hooks/useAuthStorage";
 import { useApolloClient } from "@apollo/client";
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.colors.appBarBackground,
-    margin: 5,
-    padding: 10,
+    padding: 15,
   },
   text: {
-    color: theme.colors.textAppBar,
+    color: theme.colors.textWhite,
     fontSize: theme.fontSizes.appBarLinks,
   },
   link: {
     marginHorizontal: 10,
-  },
+  }
+
 });
 
 const AppBar = () => {
   const navigate = useNavigate();
   const apolloClient = useApolloClient();
   const authStorage = useAuthStorage();
-  const { data, loading } = useQuery(CURRENTLY_SIGNED_IN);
+  const { data, loading } = useQuery(GET_CURRENT_USER);
 
   const signOut = async () => {
     await authStorage.removeAccessToken();
@@ -41,7 +39,7 @@ const AppBar = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal style={styles.scrollview}>
-        <Pressable onPressOut={() => navigate("/")}>
+        <Pressable style={styles.link} onPressOut={() => navigate("/")}>
           <Text style={styles.text}>Repositories</Text>
         </Pressable>
         {data.me === null ? (
@@ -64,6 +62,14 @@ const AppBar = () => {
             onPressOut={() => navigate("/createreview")}
           >
             <Text style={styles.text}>Create a Review</Text>
+          </Pressable>
+        )}
+        {data.me !== null && (
+          <Pressable
+            style={styles.link}
+            onPressOut={() => navigate("/myreviews")}
+          >
+            <Text style={styles.text}>My Reviews</Text>
           </Pressable>
         )}
       </ScrollView>

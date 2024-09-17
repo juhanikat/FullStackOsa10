@@ -37,11 +37,29 @@ query ($id: ID!) {
   }
 }`
 
-export const CURRENTLY_SIGNED_IN = gql`
-  query {
+export const GET_CURRENT_USER = gql`
+  query($includeReviews: Boolean = false) {
     me {
       id
       username
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+            repository {
+              fullName
+              url
+            }
+          }
+        }
+      }
     }
   }
 `;

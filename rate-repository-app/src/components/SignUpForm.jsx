@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   button: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.blue,
     borderRadius: 5,
     width: 70,
     padding: 5,

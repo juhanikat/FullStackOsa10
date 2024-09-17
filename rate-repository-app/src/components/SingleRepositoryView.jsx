@@ -6,34 +6,9 @@ import Text from "./Text";
 import { FlatList } from "react-native";
 import { View } from "react-native";
 import { StyleSheet } from "react-native";
-import theme from "../theme";
-import { format } from "date-fns";
+import ReviewItem from "./ReviewItem";
 
 const styles = StyleSheet.create({
-  reviewContainer: {
-    flexDirection: "row",
-    flex: 1,
-    borderRadius: 5,
-    backgroundColor: theme.colors.repositoryBackground,
-    padding: 10,
-    marginHorizontal: 10,
-    marginVertical: 5,
-  },
-  ratingCircle: {
-    borderStyle: "solid",
-    borderColor: theme.colors.ratingCircle,
-    borderWidth: 5,
-    borderRadius: 50 / 2,
-    alignItems: "center",
-    justifyContent: "center",
-    width: 50,
-    height: 50,
-    marginHorizontal: 20,
-  },
-  reviewTextContainer: {
-    flexDirection: "column",
-    flex: 1,
-  },
   separator: {
     height: 10,
   },
@@ -41,21 +16,6 @@ const styles = StyleSheet.create({
 
 const RepositoryInfo = ({ repository }) => {
   return <RepositoryItem repository={repository} showGithubBtn={true} />;
-};
-
-const ReviewItem = ({ review }) => {
-  return (
-    <View style={styles.reviewContainer}>
-      <View style={styles.ratingCircle}>
-        <Text color={"blue"}>{review.rating}</Text>
-      </View>
-      <View style={styles.reviewTextContainer}>
-        <Text>{review.user.username}</Text>
-        <Text>{format(review.createdAt, "GGGG-d-M-yyyy")}</Text>
-        <Text>{review.text}</Text>
-      </View>
-    </View>
-  );
 };
 
 const ItemSeparator = () => {
@@ -91,7 +51,7 @@ const SingleRepositoryView = () => {
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={(item) => item.id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
-      ListFooterComponent={<View style={{height: 200}}/>}
+      ListFooterComponent={<View style={{ height: 200 }} />}
       ItemSeparatorComponent={ItemSeparator}
     />
   );
