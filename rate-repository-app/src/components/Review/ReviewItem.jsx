@@ -1,11 +1,8 @@
-import Text from "./Text";
-import { Pressable, View } from "react-native";
-import { StyleSheet } from "react-native";
-import theme from "../theme";
 import { format } from "date-fns";
-import { Linking } from "react-native";
-import { Alert } from "react-native";
-import useDeleteReview from "../hooks/useDeleteReview";
+import { Alert, Linking, Pressable, StyleSheet, View } from "react-native";
+import useDeleteReview from "../../hooks/useDeleteReview";
+import theme from "../../theme";
+import Text from "../Text";
 
 const styles = StyleSheet.create({
   container: {

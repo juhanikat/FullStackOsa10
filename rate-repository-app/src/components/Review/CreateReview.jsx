@@ -1,7 +1,7 @@
-import ReviewForm from "./ReviewForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-native";
-import useCreateReview from "../hooks/useCreateReview";
+import useCreateReview from "../../hooks/useCreateReview";
+import ReviewForm from "../Form/ReviewForm";
 
 const CreateReview = () => {
   const navigate = useNavigate();

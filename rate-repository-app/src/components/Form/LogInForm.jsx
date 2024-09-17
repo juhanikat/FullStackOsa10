@@ -1,8 +1,8 @@
-import Text from "./Text";
 import { useFormik } from "formik";
-import { View, TextInput, Pressable, StyleSheet } from "react-native";
-import theme from "../theme";
+import { Pressable, StyleSheet, TextInput, View } from "react-native";
 import * as yup from "yup";
+import theme from "../../theme";
+import Text from "../Text";
 
 const styles = StyleSheet.create({
   container: {

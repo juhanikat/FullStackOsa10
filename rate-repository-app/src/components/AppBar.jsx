@@ -1,11 +1,10 @@
-import { View, StyleSheet, Pressable, ScrollView } from "react-native";
-import Text from "./Text";
-import theme from "../theme";
+import { useApolloClient, useQuery } from "@apollo/client";
+import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { useNavigate } from "react-router-native";
-import { useQuery } from "@apollo/client";
 import { GET_CURRENT_USER } from "../graphql/queries";
 import useAuthStorage from "../hooks/useAuthStorage";
-import { useApolloClient } from "@apollo/client";
+import theme from "../theme";
+import Text from "./Text";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,8 +17,7 @@ const styles = StyleSheet.create({
   },
   link: {
     marginHorizontal: 10,
-  }
-
+  },
 });
 
 const AppBar = () => {

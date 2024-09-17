@@ -1,12 +1,10 @@
-import { useParams } from "react-router-native";
-import RepositoryItem from "./RepositoryItem";
 import { useQuery } from "@apollo/client";
-import { GET_REVIEW, GET_SINGLE_REPOSITORY } from "../graphql/queries";
-import Text from "./Text";
-import { FlatList } from "react-native";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
-import ReviewItem from "./ReviewItem";
+import { FlatList, StyleSheet, View } from "react-native";
+import { useParams } from "react-router-native";
+import { GET_REVIEW, GET_SINGLE_REPOSITORY } from "../../graphql/queries";
+import ReviewItem from "../Review/ReviewItem";
+import Text from "../Text";
+import RepositoryItem from "./RepositoryItem";
 
 const styles = StyleSheet.create({
   separator: {

@@ -1,7 +1,7 @@
-import useSignIn from "../hooks/useSignIn";
-import { useNavigate } from "react-router-native";
-import { LogInForm } from "./LogInForm";
 import { useState } from "react";
+import { useNavigate } from "react-router-native";
+import useSignIn from "../../hooks/useSignIn";
+import { LogInForm } from "../Form/LogInForm";
 
 const SignIn = () => {
   const [signIn] = useSignIn();

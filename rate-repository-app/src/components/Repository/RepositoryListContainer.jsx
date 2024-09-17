@@ -1,6 +1,6 @@
-import { FlatList, View, StyleSheet, Pressable } from "react-native";
-import RepositoryItem from "./RepositoryItem";
+import { FlatList, Pressable, StyleSheet, View } from "react-native";
 import { Searchbar } from "react-native-paper";
+import RepositoryItem from "./RepositoryItem";
 
 const styles = StyleSheet.create({
   container: {

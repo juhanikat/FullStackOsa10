@@ -1,13 +1,13 @@
 import { StyleSheet, View } from "react-native";
-import RepositoryList from "./RepositoryList";
-import AppBar from "./AppBar";
+import { Navigate, Route, Routes } from "react-router-native";
 import theme from "../theme";
-import { Route, Routes, Navigate } from "react-router-native";
-import SignIn from "./SignIn";
-import SingleRepositoryView from "./SingleRepositoryView";
-import CreateReview from "./CreateReview";
-import SignUp from "./SignUp";
-import MyReviews from "./MyReviews";
+import AppBar from "./AppBar";
+import RepositoryList from "./Repository/RepositoryList";
+import SingleRepositoryView from "./Repository/SingleRepositoryView";
+import CreateReview from "./Review/CreateReview";
+import MyReviews from "./Review/MyReviews";
+import SignIn from "./User/SignIn";
+import SignUp from "./User/SignUp";
 
 const styles = StyleSheet.create({
   container: {

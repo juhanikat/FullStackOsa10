@@ -1,9 +1,8 @@
-import { View, Image, StyleSheet, Pressable } from "react-native";
-import Text from "./Text";
+import { Image, Linking, Pressable, StyleSheet, View } from "react-native";
+import Text from "../Text";
 import RepositoryStats from "./RepositoryStats";
-import { Linking } from "react-native";
 
-import theme from "../theme";
+import theme from "../../theme";
 
 const styles = StyleSheet.create({
   container: {

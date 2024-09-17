@@ -1,8 +1,9 @@
-import Text from "./Text";
 import { useFormik } from "formik";
-import { View, TextInput, Pressable, StyleSheet } from "react-native";
-import theme from "../theme";
+import { Pressable, StyleSheet, TextInput, View } from "react-native";
 import * as yup from "yup";
+import theme from "../../theme";
+import Text from "../Text";
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
@@ -47,7 +48,10 @@ const validationSchema = yup.object().shape({
     .required("Password is required"),
   passwordConfirmation: yup
     .string()
-    .oneOf([yup.ref("password")], "password confirmation must match your password")
+    .oneOf(
+      [yup.ref("password")],
+      "password confirmation must match your password"
+    )
     .required("Password confirmation is required"),
 });
 

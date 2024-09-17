@@ -1,9 +1,7 @@
 import { useQuery } from "@apollo/client";
-import { GET_CURRENT_USER } from "../graphql/queries";
-import Text from "./Text";
-import { FlatList } from "react-native";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
+import { GET_CURRENT_USER } from "../../graphql/queries";
+import Text from "../Text";
 import ReviewItem from "./ReviewItem";
 
 const styles = StyleSheet.create({
@@ -25,11 +23,16 @@ const MyReviews = () => {
   if (loading) {
     return <Text>Loading reviews...</Text>;
   }
+  if (data.me === null) {
+    return <Text>Please sign in first.</Text>;
+  }
   const reviews = data ? data.me.reviews.edges.map((edge) => edge.node) : [];
   return (
     <FlatList
       data={reviews}
-      renderItem={({ item }) => <ReviewItem review={item} partOfList={true} refetch={refetch} />}
+      renderItem={({ item }) => (
+        <ReviewItem review={item} partOfList={true} refetch={refetch} />
+      )}
       keyExtractor={(item) => item.id}
       ListFooterComponent={<View style={{ height: 200 }} />}
       ItemSeparatorComponent={ItemSeparator}

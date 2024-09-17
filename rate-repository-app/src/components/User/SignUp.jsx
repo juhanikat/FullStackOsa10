@@ -1,8 +1,8 @@
-import useCreateUser from "../hooks/useCreateUser";
-import { useNavigate } from "react-router-native";
-import SignUpForm from "./SignUpForm";
 import { useState } from "react";
-import useSignIn from "../hooks/useSignIn";
+import { useNavigate } from "react-router-native";
+import useCreateUser from "../../hooks/useCreateUser";
+import useSignIn from "../../hooks/useSignIn";
+import SignUpForm from "../Form/SignUpForm";
 
 const SignUp = () => {
   const [createUser] = useCreateUser();
