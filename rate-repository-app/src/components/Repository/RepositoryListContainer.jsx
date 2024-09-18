@@ -18,6 +18,7 @@ const RepositoryListContainer = ({
   navigate,
   searchQuery,
   setSearchQuery,
+  onEndReached,
 }) => {
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
@@ -47,7 +48,8 @@ const RepositoryListContainer = ({
           value={searchQuery}
         />
       }
-      ListFooterComponent={<View style={{height: 200}}/>}
+      ListFooterComponent={<View style={{ height: 200 }} />}
+      onEndReached={onEndReached}
     />
   );
 };

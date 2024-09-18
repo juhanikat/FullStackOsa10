@@ -14,7 +14,12 @@ const RepositoryList = () => {
   const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
   const navigate = useNavigate();
 
-  const { data, error, loading } = useRepositories({
+  const onEndReached = () => {
+    fetchMore();
+  };
+
+  const { repositories, error, loading, fetchMore } = useRepositories({
+    first: 5,
     orderBy,
     orderDirection,
     searchQuery: debouncedSearchQuery,
@@ -51,10 +56,11 @@ const RepositoryList = () => {
         <Picker.Item label="Lowest rated repositories" value={"2"} />
       </Picker>
       <RepositoryListContainer
-        repositories={data.repositories}
+        repositories={repositories}
         navigate={navigate}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        onEndReached={onEndReached}
       />
     </>
   );

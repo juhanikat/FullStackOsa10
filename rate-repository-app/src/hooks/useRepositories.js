@@ -1,11 +1,30 @@
 import { useQuery } from '@apollo/client';
 import { GET_REPOSITORIES } from '../graphql/queries';
 
-const useRepositories = ({ orderBy, orderDirection, searchQuery }) => {
-    const { data, error, loading } = useQuery(GET_REPOSITORIES, {
-        variables: { orderBy: orderBy, orderDirection: orderDirection, searchKeyword: searchQuery },
-    });
-    return { data, error, loading }
+
+const useRepositories = (variables) => {
+    const { data, loading, fetchMore } = useQuery(GET_REPOSITORIES, { variables: variables });
+    const handleFetchMore = () => {
+        const canFetchMore = !loading && data?.repositories.pageInfo.hasNextPage;
+        if (!canFetchMore) {
+            return;
+        }
+
+        fetchMore({
+            variables: {
+                after: data.repositories.pageInfo.endCursor,
+                ...variables,
+            },
+        });
+    };
+
+    return {
+        repositories: data?.repositories,
+        fetchMore: handleFetchMore,
+        loading
+    };
 };
+
+
 
 export default useRepositories;

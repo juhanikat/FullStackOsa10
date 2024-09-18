@@ -30,6 +30,7 @@ const AppBar = () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
     console.log("Signed out, removed token");
+    navigate("/")
   };
   if (loading) {
     return <Text>Loading appbar...</Text>;

@@ -1,6 +1,5 @@
-import { useQuery } from "@apollo/client";
 import { FlatList, StyleSheet, View } from "react-native";
-import { GET_CURRENT_USER } from "../../graphql/queries";
+import useUser from "../../hooks/useUser";
 import Text from "../Text";
 import ReviewItem from "./ReviewItem";
 
@@ -16,20 +15,20 @@ const ItemSeparator = () => {
 };
 
 const MyReviews = () => {
-  const { data, loading, refetch } = useQuery(GET_CURRENT_USER, {
-    variables: { includeReviews: true },
+  const { user, reviews, loading, refetch } = useUser({
+    includeReviews: true,
   });
 
   if (loading) {
     return <Text>Loading reviews...</Text>;
   }
-  if (data.me === null) {
+  if (user === null) {
     return <Text>Please sign in first.</Text>;
   }
-  const reviews = data ? data.me.reviews.edges.map((edge) => edge.node) : [];
+  const usedReviews = reviews ? reviews.edges.map((edge) => edge.node) : [];
   return (
     <FlatList
-      data={reviews}
+      data={usedReviews}
       renderItem={({ item }) => (
         <ReviewItem review={item} partOfList={true} refetch={refetch} />
       )}
