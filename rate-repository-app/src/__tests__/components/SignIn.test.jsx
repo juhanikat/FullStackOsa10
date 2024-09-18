@@ -1,11 +1,10 @@
 import {
+  fireEvent,
   render,
   screen,
-  fireEvent,
   waitFor,
 } from "@testing-library/react-native";
-import { LogInForm } from "../../components/LogInForm";
-// ...
+import { LogInForm } from "../../components/Form/LogInForm";
 
 describe("SignIn", () => {
   describe("SignInContainer", () => {
