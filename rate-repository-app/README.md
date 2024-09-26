@@ -1,0 +1,1 @@
+You might have change the APOLLO_URI in .env to your ip address for the program to work. 
