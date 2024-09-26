@@ -3,7 +3,7 @@ import { GET_REVIEW } from '../graphql/queries';
 
 
 const useReviews = (variables) => {
-    const { data, loading, fetchMore } = useQuery(GET_REVIEW, { variables: variables });
+    const { data, loading, fetchMore } = useQuery(GET_REVIEW, { variables: variables, fetchPolicy: 'cache-and-network' });
     const handleFetchMore = () => {
         const canFetchMore = !loading && data?.repository.reviews.pageInfo.hasNextPage;
         if (!canFetchMore) {

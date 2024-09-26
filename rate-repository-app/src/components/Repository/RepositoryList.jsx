@@ -22,7 +22,7 @@ const RepositoryList = () => {
     first: 5,
     orderBy,
     orderDirection,
-    searchQuery: debouncedSearchQuery,
+    searchKeyword: debouncedSearchQuery,
   });
   if (loading) {
     return <Text>Loading repositories...</Text>;
